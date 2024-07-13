@@ -2,6 +2,11 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import ComponentDefaultExport from "./components/learn/ComponentDefaultExport";
+import {
+  ComponentObjectExportA,
+  ComponentObjectExportB,
+} from "./components/learn/ComponentObjectExport";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +28,9 @@ function App() {
         </a>
       </div>
       <h1>Hello World</h1>
+      <ComponentDefaultExport />
+      <ComponentObjectExportA />
+      <ComponentObjectExportB />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
