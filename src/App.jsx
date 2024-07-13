@@ -6,6 +6,12 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
+  const myFunction = () => {
+    console.log("Run my arrow function");
+  };
+
+  myFunction();
+
   return (
     <>
       <div>
