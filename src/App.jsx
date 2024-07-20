@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ComponentDefaultExport from "./components/learn/ComponentDefaultExport";
 import {
   ComponentObjectExportA,
@@ -11,19 +10,18 @@ import reactLogo from "./assets/react.svg";
 import "./components/todo/todo.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const myFunction = () => {
-    console.log("Run my arrow function");
+  const name = "Makintern";
+  const age = 18;
+  const data = {
+    address: "Phu Yen",
+    country: "Vietnam",
   };
-
-  myFunction();
 
   return (
     <>
       <div className="todo-container">
         <div className="todo-title">Todo List</div>
-        <TodoData />
+        <TodoData name={name} age={age} data={data} />
         <TodoNew />
         <div className="todo-image">
           <img src={reactLogo} className="logo" />
