@@ -1,6 +1,6 @@
 import "./styles.css";
 
-function ComponentDefaultExport() {
+const ComponentDefaultExport = () => {
   return (
     <>
       <div>My First Component</div>
@@ -9,6 +9,6 @@ function ComponentDefaultExport() {
       </div>
     </>
   );
-}
+};
 
 export default ComponentDefaultExport;
