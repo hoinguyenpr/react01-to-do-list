@@ -1,6 +1,6 @@
 const TodoData = (props) => {
   //pros is an object
-  const { name, age, data } = props;
+  const { name, age, data, todoList } = props;
   return (
     <div className="todo-data">
       <div>My name is {name}</div>
@@ -8,6 +8,7 @@ const TodoData = (props) => {
       <div>I'm come from {data.country}</div>
       <div>Learning React</div>
       <div>Watching Youtube</div>
+      <div>{JSON.stringify(todoList)}</div>
     </div>
   );
 };
