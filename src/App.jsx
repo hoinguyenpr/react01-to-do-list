@@ -18,21 +18,20 @@ function App() {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
-  const [todoList, setTodoList] = useState([
-    { id: 1, name: "Leaning ReactJS" },
-    { id: 2, name: "Leaning English" },
-    { id: 3, name: "Leaning Algorithms" },
-  ]);
+  const [todoList, setTodoList] = useState([]);
 
   return (
     <>
       <div className="todo-container">
         <div className="todo-title">Todo List</div>
         <TodoNew addNewTodo={addNewTodo} />
-        <TodoData todoList={todoList} />
-        <div className="todo-image">
-          <img src={reactLogo} className="logo" />
-        </div>
+        {todoList.length > 0 ? (
+          <TodoData todoList={todoList} />
+        ) : (
+          <div className="todo-image">
+            <img src={reactLogo} className="logo" />
+          </div>
+        )}
       </div>
     </>
   );
