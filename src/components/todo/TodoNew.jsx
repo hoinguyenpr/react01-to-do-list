@@ -19,6 +19,7 @@ const TodoNew = (props) => {
       <input
         type="text"
         onChange={(event) => handleClickOnChange(event.target.value)}
+        onKeyUp={(event) => event.key === "Enter" && handleClick()}
         value={valueInput}
       />
       <button style={{ cursor: "pointer" }} onClick={handleClick}>
