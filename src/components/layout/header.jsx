@@ -7,10 +7,10 @@ const Header = () => {
         <a className="active" href="/">
           Home
         </a>
+        <a href="/users">Users</a>
+        <a href="/products">Product</a>
         <a href="/login">Login</a>
         <a href="/register">Register</a>
-        <a href="/users">Users</a>
-        <a href="/product">Product</a>
       </div>
     </>
   );
