@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button, Input } from "antd";
-import axios from "axios";
+import { Button, Input, notification } from "antd";
+import createUserAPI from "../../services/api.service";
 
 const UserInput = () => {
   const [fullName, setFullName] = useState("");
@@ -8,14 +8,14 @@ const UserInput = () => {
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const handleClickBtn = () => {
-    const URL_BACKEND = "http://localhost:8080/api/v1/user";
-    axios.post(URL_BACKEND, {
-      fullName: fullName,
-      email: email,
-      password: password,
-      phone: phoneNumber,
-    });
+  const handleClickBtn = async () => {
+    const res = await createUserAPI(fullName, email, password, phoneNumber);
+    if (res.data) {
+      notification.success({
+        message: "create user",
+        description: "Create user success!",
+      });
+    }
   };
 
   return (
