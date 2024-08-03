@@ -15,6 +15,11 @@ const UserInput = () => {
         message: "create user",
         description: "Create user success!",
       });
+    } else {
+      notification.error({
+        message: "Error create user",
+        description: JSON.stringify(res.message),
+      });
     }
   };
 
