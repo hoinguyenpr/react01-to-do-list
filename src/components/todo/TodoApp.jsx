@@ -5,6 +5,8 @@ import "./todo.css";
 import { useState } from "react";
 
 const TodoApp = () => {
+  const [todoList, setTodoList] = useState([]);
+
   const addNewTodo = (name) => {
     console.log("Test");
     const newTodo = {
@@ -22,8 +24,6 @@ const TodoApp = () => {
   const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-
-  const [todoList, setTodoList] = useState([]);
   return (
     <>
       <div className="todo-container">

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Button, Input, notification } from "antd";
-import createUserAPI from "../../services/api.service";
+import { createUserAPI } from "../../services/api.service";
 
 const UserInput = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [createResult, setCreateResult] = useState(false);
 
   const handleClickBtn = async () => {
     const res = await createUserAPI(fullName, email, password, phoneNumber);
@@ -15,6 +16,7 @@ const UserInput = () => {
         message: "create user",
         description: "Create user success!",
       });
+      setCreateResult(true);
     } else {
       notification.error({
         message: "Error create user",
