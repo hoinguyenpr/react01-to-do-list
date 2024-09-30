@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { Button, Input, Modal, notification } from "antd";
 import { createUserAPI } from "../../services/api.service";
 
-const UserInput = () => {
+const UserForm = ({ loadUser }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [createResult, setCreateResult] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOk = async () => {
+  const handleSubmitBtn = async () => {
     setIsModalOpen(false);
     const res = await createUserAPI(fullName, email, password, phoneNumber);
     if (res.data) {
@@ -18,13 +17,22 @@ const UserInput = () => {
         message: "create user",
         description: "Create user success!",
       });
-      setCreateResult(true);
+      resetAndCloseModal();
+      await loadUser();
     } else {
       notification.error({
         message: "Error create user",
         description: JSON.stringify(res.message),
       });
     }
+  };
+
+  const resetAndCloseModal = () => {
+    setIsModalOpen(false);
+    setFullName("");
+    setEmail("");
+    setPassword("");
+    setPhoneNumber("");
   };
 
   return (
@@ -38,8 +46,8 @@ const UserInput = () => {
       <Modal
         title="Create User"
         open={isModalOpen}
-        onOk={handleOk}
-        onCancel={() => setIsModalOpen(false)}
+        onOk={handleSubmitBtn}
+        onCancel={resetAndCloseModal}
         okText="Create User"
       >
         <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
@@ -84,4 +92,4 @@ const UserInput = () => {
     </div>
   );
 };
-export default UserInput;
+export default UserForm;
