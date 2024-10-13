@@ -60,7 +60,7 @@ const UpdateUserModal = (props) => {
       open={isModalUpdate}
       onOk={handleSubmitBtn}
       onCancel={resetAndCloseModal}
-      okText="Save "
+      okText="Save"
     >
       <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
         <div>

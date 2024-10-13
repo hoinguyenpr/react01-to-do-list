@@ -19,8 +19,12 @@ const updateUserAPI = (id, fullName, phone) => {
   });
 };
 
+const deleteUserAPI = (id) => {
+  return axios.delete(URL_BACKEND + "/" + id);
+};
+
 const fetchAllUserAPI = () => {
   return axios.get(URL_BACKEND);
 };
 
-export { createUserAPI, updateUserAPI, fetchAllUserAPI };
+export { createUserAPI, updateUserAPI, deleteUserAPI, fetchAllUserAPI };
