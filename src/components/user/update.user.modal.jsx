@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Input, Modal, notification } from "antd";
 import { updateUserAPI } from "../../services/api.service";
 
@@ -81,7 +81,7 @@ const UpdateUserModal = (props) => {
           <Input
             value={phone}
             onChange={(event) => {
-              setPhoneNumber(event.target.value);
+              setPhone(event.target.value);
             }}
           />
         </div>
